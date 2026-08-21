@@ -1,0 +1,188 @@
+/* Stary Sad — arkusz wspólny dla wszystkich podstron */
+
+:root{
+  --atrament:#171c17;
+  --sad:#33472c;
+  --sad-jasny:#4c6440;
+  --sliwka:#4a3550;
+  --antonowka:#9caa46;
+  --len:#e4e2d8;
+  --len-jasny:#efeee7;
+  --mgla:#b3bdac;
+  --szept:#6f776b;
+  --linia:#cdcabd;
+
+  --display:"Petrona",Georgia,serif;
+  --tekst:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --marg:clamp(20px,5vw,64px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--len);color:var(--atrament);
+  font-family:var(--tekst);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;margin:0}
+:focus-visible{outline:3px solid var(--sliwka);outline-offset:3px}
+
+.owijka{width:min(1180px,100% - var(--marg)*2);margin-inline:auto}
+section{scroll-margin-top:96px}
+
+/* ---------- nagłówek ---------- */
+.gora{
+  position:sticky;top:0;z-index:40;background:var(--len);
+  border-bottom:1px solid var(--linia);
+}
+.gora-rzad{display:flex;align-items:center;gap:24px;min-height:74px}
+.znak{font-family:var(--display);font-size:1.5rem;font-weight:600;text-decoration:none;line-height:1.1}
+.znak i{display:block;font:400 .62rem/1 var(--tekst);font-style:normal;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--szept);margin-top:5px}
+.menu{margin-left:auto;display:flex;gap:26px;font-size:.94rem}
+.menu a{text-decoration:none;color:var(--szept);padding:4px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a[aria-current]{color:var(--atrament);border-bottom-color:var(--antonowka)}
+.telefon{
+  font-weight:700;text-decoration:none;white-space:nowrap;
+  padding:10px 16px;background:var(--sliwka);color:#fff;font-size:.94rem;
+}
+.telefon:hover{background:var(--atrament)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;
+  background:var(--sad);overflow:hidden}
+.hero .ph,.hero .ph img{position:absolute;inset:0;width:100%;height:100%}
+.hero .ph img{object-fit:cover;object-position:38% center}
+.hero:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(23,28,23,.45) 0%,rgba(23,28,23,.05) 38%,rgba(23,28,23,.82) 100%)}
+.hero-tresc{position:relative;z-index:2;color:#f3f2ea;padding:0 0 clamp(36px,6vw,72px)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.02;max-width:16ch;color:#fff}
+.nadpis{font:700 .72rem/1 var(--tekst);letter-spacing:.24em;text-transform:uppercase;
+  color:var(--antonowka);margin-bottom:20px}
+.hero p{max-width:52ch;font-size:1.1rem;color:#dfe2d8;margin:20px 0 0}
+.przyciski{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:14px 24px;text-decoration:none;font-weight:700;font-size:.96rem}
+.btn-glowny{background:var(--antonowka);color:var(--atrament)}
+.btn-glowny:hover{background:#b0be55}
+.btn-obrys{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+.btn-obrys:hover{background:rgba(255,255,255,.12)}
+.btn-ciemny{background:var(--sliwka);color:#fff}
+.btn-ciemny:hover{background:var(--atrament)}
+
+/* ---------- bloki treści ---------- */
+.blok{padding:clamp(56px,8vw,104px) 0}
+.blok-len{background:var(--len-jasny);border-block:1px solid var(--linia)}
+.tytul{font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;max-width:20ch}
+.wstep{color:var(--szept);max-width:56ch;margin-top:14px}
+.para{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.para p{max-width:50ch}
+.podpis{font-size:.82rem;color:var(--szept);margin-top:10px}
+
+/* ---------- kalendarz sadu (element charakterystyczny) ---------- */
+.kalendarz{background:var(--sad);color:#eceee6}
+.kalendarz .tytul{color:#fff}
+.kalendarz .wstep{color:var(--mgla)}
+.miesiace{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;margin-top:44px;
+  align-items:end;min-height:190px}
+.mies{background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.slupek{width:100%;background:rgba(255,255,255,.16);transition:background .2s}
+.mies:hover .slupek,.mies[aria-pressed="true"] .slupek{background:var(--antonowka)}
+.mies[aria-pressed="true"] .slupek{box-shadow:0 0 0 1px var(--antonowka)}
+.mies span{font:700 .7rem/1 var(--tekst);letter-spacing:.1em;text-transform:uppercase;color:var(--mgla)}
+.mies[aria-pressed="true"] span{color:#fff}
+.opis-miesiaca{
+  margin-top:26px;border-top:1px solid rgba(255,255,255,.2);padding-top:22px;
+  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:baseline;min-height:86px}
+.opis-miesiaca b{font-family:var(--display);font-size:1.7rem;font-weight:600;white-space:nowrap}
+.opis-miesiaca p{margin:0;color:#dfe4d9;max-width:60ch}
+
+/* ---------- pokoje ---------- */
+.pokoje{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.pokoj{background:var(--len-jasny);border:1px solid var(--linia);display:flex;flex-direction:column}
+.pokoj .ph{aspect-ratio:4/3}
+.pokoj-tresc{padding:22px;display:flex;flex-direction:column;flex:1;gap:10px}
+.pokoj h3{font-size:1.45rem}
+.pokoj p{margin:0;color:var(--szept);font-size:.95rem}
+.cena{margin-top:auto;padding-top:14px;border-top:1px solid var(--linia);
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.cena b{font-family:var(--display);font-size:1.35rem;font-weight:600}
+.cena small{color:var(--szept);font-size:.82rem}
+
+/* ---------- okolica ---------- */
+.okolica{margin-top:40px;border-top:1px solid var(--linia)}
+.pozycja{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:20px 0;
+  border-bottom:1px solid var(--linia);align-items:baseline}
+.dystans{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--sliwka)}
+.pozycja h3{font-size:1.05rem;font-family:var(--tekst);font-weight:700;margin-bottom:3px}
+.pozycja p{margin:0;color:var(--szept);font-size:.95rem}
+
+/* ---------- galeria ---------- */
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.galeria .ph{aspect-ratio:3/2}
+
+/* ---------- zdjęcia i zastępniki ---------- */
+.ph{position:relative;overflow:hidden;background:var(--mgla)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.brak{background:
+  repeating-linear-gradient(45deg,#c9cfc2 0 10px,#c3cabc 10px 20px);}
+.ph.brak:after{
+  content:attr(data-opis);position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:16px;
+  font:700 .74rem/1.45 var(--tekst);letter-spacing:.1em;text-transform:uppercase;color:#4c5548}
+.ph.brak img{display:none}
+
+/* ---------- kontakt / stopka ---------- */
+.kontakt{background:var(--atrament);color:#e8eae2}
+.kontakt .tytul{color:#fff}
+.kontakt-siatka{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,80px);margin-top:40px}
+.dane{display:grid;gap:20px}
+.dane div{border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
+.dane dt{font:700 .7rem/1 var(--tekst);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mgla);margin-bottom:8px}
+.dane dd{margin:0;font-size:1.15rem}
+.dane a{text-decoration:none;border-bottom:1px solid var(--antonowka)}
+.stopka{padding:26px 0;font-size:.82rem;color:var(--szept);display:flex;
+  justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- podstrony ---------- */
+.naglowek-strony{padding:clamp(48px,7vw,86px) 0 0}
+.naglowek-strony h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;max-width:18ch}
+.pokoj-duzy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);
+  align-items:center;padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--linia)}
+.pokoj-duzy:nth-child(even) .ph{order:2}
+.pokoj-duzy .ph{aspect-ratio:4/3}
+.lista{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px}
+.lista li{padding-left:22px;position:relative;color:var(--szept);font-size:.96rem}
+.lista li:before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;
+  background:var(--antonowka)}
+.tabela{width:100%;border-collapse:collapse;margin-top:30px;font-size:.96rem}
+.tabela th,.tabela td{text-align:left;padding:13px 12px;border-bottom:1px solid var(--linia)}
+.tabela th{font:700 .72rem/1 var(--tekst);letter-spacing:.16em;text-transform:uppercase;color:var(--szept)}
+.tabela td:last-child,.tabela th:last-child{text-align:right}
+
+/* ---------- responsywność ---------- */
+@media(max-width:900px){
+  .para,.kontakt-siatka,.pokoj-duzy{grid-template-columns:1fr}
+  .pokoj-duzy:nth-child(even) .ph{order:0}
+  .pokoje{grid-template-columns:1fr;max-width:460px}
+  .galeria{grid-template-columns:repeat(2,1fr)}
+  .menu{display:none}
+  .gora-rzad{justify-content:space-between}
+  .telefon{margin-left:auto}
+  .miesiace{grid-template-columns:repeat(6,1fr);row-gap:18px;min-height:0}
+  .slupek{min-height:14px}
+  .opis-miesiaca{grid-template-columns:1fr;gap:8px}
+}
+@media(max-width:520px){
+  body{font-size:16px}
+  .pozycja{grid-template-columns:1fr;gap:4px}
+  .znak{font-size:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
