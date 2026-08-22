@@ -31,7 +31,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;margi
 :focus-visible{outline:3px solid var(--sliwka);outline-offset:3px}
 
 .owijka{width:min(1180px,100% - var(--marg)*2);margin-inline:auto}
-section{scroll-margin-top:96px}
+[id]{scroll-margin-top:95px}
 
 /* ---------- nagłówek ---------- */
 .gora{
@@ -77,7 +77,8 @@ section{scroll-margin-top:96px}
 .blok-len{background:var(--len-jasny);border-block:1px solid var(--linia)}
 .tytul{font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;max-width:20ch}
 .wstep{color:var(--szept);max-width:56ch;margin-top:14px}
-.para{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.para{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.para > div > p:last-child{margin-bottom:0}
 .para p{max-width:50ch}
 .podpis{font-size:.82rem;color:var(--szept);margin-top:10px}
 
@@ -137,6 +138,7 @@ section{scroll-margin-top:96px}
 
 /* ---------- kontakt / stopka ---------- */
 .kontakt{background:var(--atrament);color:#e8eae2}
+main > section:last-child{min-height:calc(100vh - 75px);display:flex;align-items:center}
 .kontakt .tytul{color:#fff}
 .kontakt-siatka{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,80px);margin-top:40px}
 .dane{display:grid;gap:20px}
@@ -166,6 +168,7 @@ section{scroll-margin-top:96px}
 
 /* ---------- responsywność ---------- */
 @media(max-width:900px){
+  main > section:last-child{min-height:0;display:block}
   .para,.kontakt-siatka,.pokoj-duzy{grid-template-columns:1fr}
   .pokoj-duzy:nth-child(even) .ph{order:0}
   .pokoje{grid-template-columns:1fr;max-width:460px}
