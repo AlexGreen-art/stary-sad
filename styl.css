@@ -31,7 +31,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;margi
 :focus-visible{outline:3px solid var(--sliwka);outline-offset:3px}
 
 .owijka{width:min(1180px,100% - var(--marg)*2);margin-inline:auto}
-[id]{scroll-margin-top:95px}
+[id]{scroll-margin-top:123px}
 
 /* ---------- nagłówek ---------- */
 .gora{
@@ -152,7 +152,7 @@ main > section:last-child{min-height:calc(100vh - 75px);display:flex;align-items
   justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* ---------- podstrony ---------- */
-.naglowek-strony{padding:clamp(48px,7vw,86px) 0 0}
+.naglowek-strony{padding:48px 0 0}
 .naglowek-strony h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;max-width:18ch}
 .pokoj-duzy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);
   align-items:center;padding:clamp(40px,6vw,72px) 0;border-bottom:1px solid var(--linia)}
